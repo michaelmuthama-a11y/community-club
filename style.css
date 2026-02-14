@@ -1,0 +1,210 @@
+/* Basic reset */
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+:root{
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-primary: #0b3a66;
+  --color-primary-strong: #06314f;
+  --color-accent: #e6f2ff;
+  --color-hero-end: #f7fafc;
+  --color-muted: #64748b;
+  --color-border: #e6eef8;
+  --color-text: #0f1724;
+  --radius: 8px;
+  --container-max: 1100px;
+  --container-pad: 1.25rem;
+}
+
+html {
+  font-size:16px
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+   line-height:1.5;
+    color:var(--color-text); 
+    background:var(--color-bg);
+  }
+
+.container{
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:clamp(0.75rem, 1.2vw, 1.5rem);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0.5rem 0
+}
+
+.brand{
+  font-weight:700;
+  color:var(--color-primary);
+  text-decoration:none;
+  font-size:1.25rem
+}
+
+.site-nav a{
+  margin-left:1rem;
+  text-decoration:none;
+  color:var(--color-primary)
+}
+
+.nav-toggle{
+  display:none;
+  background:none;
+  border:0;
+  font-size:1.5rem;
+  padding:0.25rem
+}
+
+
+.hero{
+  background:linear-gradient(135deg,var(--color-accent),var(--color-hero-end));
+  padding:4rem 0;
+  text-align:center
+}
+
+.hero h1{
+  font-size:clamp(1.5rem, 3vw + 1rem, 2.75rem);
+  margin-bottom:0.5rem
+}
+
+.lead{
+  color:var(--color-muted);
+  margin-bottom:1rem;
+  font-size:1.125rem
+}
+
+.btn{
+  display:inline-block;
+  background:var(--color-primary);
+  color:#fff;
+  padding:0.6rem 1rem;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:500;
+  transition:background 0.3s ease;
+}
+
+.btn.ghost{
+  background:transparent;
+  color:var(--color-primary);
+  border:1px solid rgba(11,58,102,0.12);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin-top:1.5rem;
+}
+
+.card{
+  background:var(--color-surface);
+  border-radius:var(--radius);
+  padding:1rem;
+  box-shadow:0 1px 6px rgba(16,24,40,0.05);
+}
+
+.events{
+  margin-top:2rem;
+}
+
+.event-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+
+.event{
+  background:var(--color-surface);
+  padding:1rem;
+  border-radius:var(--radius);
+  border:1px solid var(--color-border);
+}
+
+.center{
+  text-align:center;
+}
+
+.contact-preview{
+    margin:2rem 0;
+    padding:1rem;
+      background:var(--color-hero-end);
+        border-radius:var(--radius);
+      }
+
+.site-footer{
+  border-top:1px solid var(--color-border);
+  margin-top:2rem;
+  padding:1.25rem 0;
+}
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.footer-nav a{
+  margin-left:1rem;
+  color:var(--color-primary);
+  text-decoration:none;
+}
+
+
+/* Accessibility: focus styles */
+a:focus, .btn:focus, button:focus {
+   outline: 3px solid rgba(11,58,102,0.18);
+    outline-offset:3px;
+   }
+
+
+/* Accessibility: Nav open state controlled by JS for accessibility */
+
+
+.site-nav{
+  display:flex;
+  gap:1rem;
+}
+
+
+.site-nav.open{
+  display:block;
+}
+
+
+/* Responsive */
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr}
+  .event-grid{grid-template-columns:1fr}
+}
+@media (max-width:700px){
+  .nav-toggle{display:block}
+  .site-nav{display:none;position:absolute;top:64px;right:1rem;background:var(--color-surface);border:1px solid var(--color-border);padding:0.5rem;border-radius:6px;box-shadow:0 6px 20px rgba(2,6,23,0.08)}
+  .site-nav a{display:block;margin:0.5rem 0}
+  .footer-inner{flex-direction:column;gap:0.5rem;align-items:flex-start}
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark){
+  :root{
+    --color-bg: #071129;
+    --color-surface: #07162a;
+    --color-primary: #7fd3ff;
+    --color-primary-strong: #5eb9e6;
+    --color-accent: #0b3a66;
+    --color-hero-end: #042233;
+    --color-muted: #94a3b8;
+    --color-border: rgba(255,255,255,0.06);
+    --color-text: #e6eef8;
+  }
+}
+ 
